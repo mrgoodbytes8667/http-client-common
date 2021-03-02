@@ -14,14 +14,17 @@
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 
-### phpdoc
+###> phpdoc
 phpdoc.xml
 /data/
 /docs/
-### phpdoc
+###< phpdoc
+
+###> symfony bundle
+composer.lock
+bin/phpunit
+###< symfony bundle
 
 ###> jetbrains
 .idea
 ###< jetbrains
-
-composer.lock

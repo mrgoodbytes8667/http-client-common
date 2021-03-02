@@ -4,8 +4,13 @@
     "description": "Some common files needed for the various HttpClient backed packages",
     "require": {
         "php": "^7.4 || ^8.0",
+        "ext-json": "*",
         "symfony/http-client": "^5.2",
         "symfony/http-foundation": "^5.2"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^5.2",
+        "symfony/var-dumper": "^5.2"
     },
     "authors": [
         {
@@ -21,7 +26,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Bytes\\HttpClient\\Common\\": "src/"
+            "Bytes\\HttpClient\\Common\\": "src/",
+            "Bytes\\HttpClient\\Common\\Tests\\": "Tests/"
         }
     }
 }

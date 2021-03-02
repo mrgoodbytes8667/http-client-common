@@ -1,27 +1,24 @@
-name: release
+name: tests
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the main branch
 on:
   push:
-    branches:
-      - main
-    tags:
-      - v*
+  pull_request:
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  test:
     # The type of runner that the job will run on
     timeout-minutes: 15
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         php: [ 7.4, 8.0 ]
-        dependency-version: [ prefer-lowest, prefer-stable ]
-        os: [ ubuntu-latest ]
+        dependency-version: [prefer-lowest, prefer-stable]
+        os: [ubuntu-latest]
         phpuniturl: ["https://raw.githubusercontent.com/symfony/recipes/master/symfony/phpunit-bridge/4.3/bin/phpunit"]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -88,28 +85,3 @@ jobs:
       - name: Setup and Run PHPUnit
         if: success()
         run: php bin/phpunit
-
-  release:
-    needs: build
-    # The type of runner that the job will run on
-    timeout-minutes: 15
-    runs-on: 'ubuntu-latest'
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - name: Create Release
-        if: success()
-        id: create-release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Http Client (Common) ${{ github.ref }}
-          draft: true
-          prerelease: false
-          body: |
-            Description
-            ### Features
-            ### Changes
-            ### Bugs
