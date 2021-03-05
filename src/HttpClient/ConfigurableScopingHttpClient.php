@@ -16,16 +16,16 @@ use function array_key_exists;
 use function is_string;
 
 /**
- * Class QueryScopingHttpClient
- * Overloaded copy of ScopingHttpClient that merges queries, sets up a ScopingHttpClient
+ * Class ConfigurableScopingHttpClient
+ * Overloaded copy of ScopingHttpClient that merges queries/body, sets up a ScopingHttpClient
  *
  * @package Bytes\HttpClient\Common\HttpClient
- *
- * @deprecated v0.1.1 Being replaced with ConfigurableScopingHttpClient
  */
-class QueryScopingHttpClient implements HttpClientInterface, ResetInterface, LoggerAwareInterface
+class ConfigurableScopingHttpClient implements HttpClientInterface, ResetInterface, LoggerAwareInterface
 {
     use HttpClientTrait;
+
+    const SUPPORTED_OPTIONS = ['query', 'body', 'json'];
 
     /**
      * @var HttpClientInterface
@@ -43,12 +43,18 @@ class QueryScopingHttpClient implements HttpClientInterface, ResetInterface, Log
     private $defaultRegexp;
 
     /**
-     * QueryScopingHttpClient constructor.
+     * @var array
+     */
+    private $merge;
+
+    /**
+     * ConfigurableScopingHttpClient constructor.
      * @param HttpClientInterface $client
      * @param array $defaultOptionsByRegexp
+     * @param array $merge
      * @param string|null $defaultRegexp
      */
-    public function __construct(HttpClientInterface $client, array $defaultOptionsByRegexp, string $defaultRegexp = null)
+    public function __construct(HttpClientInterface $client, array $defaultOptionsByRegexp, array $merge, string $defaultRegexp = null)
     {
         $this->client = $client;
         $this->defaultOptionsByRegexp = $defaultOptionsByRegexp;
@@ -59,6 +65,7 @@ class QueryScopingHttpClient implements HttpClientInterface, ResetInterface, Log
         }
 
         $this->client = new ScopingHttpClient($client, $defaultOptionsByRegexp, $defaultRegexp);
+        $this->merge = $merge;
     }
 
     /**
@@ -103,7 +110,7 @@ class QueryScopingHttpClient implements HttpClientInterface, ResetInterface, Log
 
         foreach ($this->defaultOptionsByRegexp as $regexp => $defaultOptions) {
             if (preg_match("{{$regexp}}A", $url)) {
-                $options = self::mergeDefaultOptions($options, $defaultOptions, true);
+                $options = $this->mergeDefaultOptions($options, $defaultOptions, true);
                 break;
             }
         }
@@ -112,7 +119,7 @@ class QueryScopingHttpClient implements HttpClientInterface, ResetInterface, Log
     }
 
     /**
-     * Merges the current and default query strings
+     * Merges the current and default option(s)
      * @param array $options
      * @param array $defaultOptions
      * @param bool $allowExtraOptions
@@ -121,16 +128,33 @@ class QueryScopingHttpClient implements HttpClientInterface, ResetInterface, Log
      *
      * @throws InvalidArgumentException When an invalid option is found
      */
-    private static function mergeDefaultOptions(array $options, array $defaultOptions, bool $allowExtraOptions = false): array
+    protected function mergeDefaultOptions(array $options, array $defaultOptions, bool $allowExtraOptions = false): array
     {
         // Option "query" is never inherited from defaults
         //$options['query'] = $options['query'] ?? [];
 
-        if (array_key_exists('query', $defaultOptions)) {
-            if (array_key_exists('query', $options)) {
-                $options['query'] = array_merge($defaultOptions['query'], $options['query']);
+        foreach (self::SUPPORTED_OPTIONS as $type) {
+            if (in_array($type, $this->merge)) {
+                $options = self::mergeOption($type, $options, $defaultOptions);
+            }
+        }
+
+        return $options;
+    }
+
+    /**
+     * @param string $option
+     * @param array $options
+     * @param array $defaultOptions
+     * @return array
+     */
+    protected static function mergeOption(string $option, array $options, array $defaultOptions)
+    {
+        if (array_key_exists($option, $defaultOptions)) {
+            if (array_key_exists($option, $options)) {
+                $options[$option] = array_merge($defaultOptions[$option], $options[$option]);
             } else {
-                $options['query'] = $defaultOptions['query'];
+                $options[$option] = $defaultOptions[$option];
             }
         }
 
