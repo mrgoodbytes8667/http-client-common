@@ -2,6 +2,7 @@
     "name": "mrgoodbytes8667/http-client-common",
     "type": "library",
     "description": "Some common files needed for the various HttpClient backed packages",
+    "license": "CC-BY-NC-4.0",
     "require": {
         "php": "^7.4 || ^8.0",
         "ext-json": "*",
