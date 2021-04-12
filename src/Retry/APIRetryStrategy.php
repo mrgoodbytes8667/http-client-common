@@ -260,6 +260,22 @@ abstract class APIRetryStrategy implements RetryStrategyInterface
     abstract protected function getRateLimitDelay(AsyncContext $context, ?TransportExceptionInterface $exception): int;
 
     /**
+     * @param array $headers
+     * @param string $key
+     * @return mixed
+     */
+    protected static function getHeaderValue(array $headers, string $key)
+    {
+        if (array_key_exists($key, $headers)) {
+            $header = $headers[$key];
+            if (array_key_exists(0, $header)) {
+                return $headers[$key][0];
+            }
+        }
+        throw new \InvalidArgumentException(sprintf('The header "%s" does not exist or does not have a key "0".', $key));
+    }
+
+    /**
      * @param AsyncContext $context
      * @param TransportExceptionInterface|null $exception
      * @return int Amount of time to delay in milliseconds
