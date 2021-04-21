@@ -12,10 +12,14 @@ use Symfony\Component\HttpClient\Retry\RetryStrategyInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
+trigger_deprecation('mrgoodbytes8667/http-client-common', '0.2.2', 'The "\Bytes\HttpClient\Common\Retry\APIRetryStrategy" class is deprecated, use "\Bytes\ResponseBundle\HttpClient\Retry\APIRetryStrategy" in "mrgoodbytes8667/response-bundle" instead.');
+
 /**
  * Class APIRetryStrategy
  * Similar to the GenericRetryStrategy with some logic from other http client frameworks
  * @package Bytes\HttpClient\Common\Retry
+ *
+ * @deprecated v0.2.2 Moving to mrgoodbytes8667/response-bundle
  */
 abstract class APIRetryStrategy implements RetryStrategyInterface
 {
