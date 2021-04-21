@@ -223,7 +223,7 @@ abstract class APIRetryStrategy implements RetryStrategyInterface
             return in_array($context->getInfo('http_method'), $this->statusCodes[0], true);
         }
 
-        if (($context->getInfo('retry_count') ?? 1) > $this->maxRetries) {
+        if (($context->getInfo('retry_count') ?? 0) > $this->maxRetries) {
             return false;
         }
 
