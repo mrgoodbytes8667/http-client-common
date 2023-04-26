@@ -172,7 +172,7 @@ class ConfigurableScopingHttpClient implements HttpClientInterface, ResetInterfa
     /**
      *
      */
-    public function reset()
+    public function reset(): void
     {
         if ($this->client instanceof ResetInterface) {
             $this->client->reset();
