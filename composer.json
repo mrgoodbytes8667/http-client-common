@@ -4,14 +4,14 @@
     "description": "Some common files needed for the various HttpClient backed packages",
     "license": "CC-BY-NC-4.0",
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.1",
         "ext-json": "*",
-        "symfony/http-client": "^5.2 | ^6.0",
-        "symfony/http-foundation": "^5.2 | ^6.0"
+        "symfony/http-client": "^6.2",
+        "symfony/http-foundation": "^6.2"
     },
     "require-dev": {
         "symfony/test-pack": "^1.0.9",
-        "symfony/var-dumper": "^5.2 | ^6.0"
+        "symfony/var-dumper": "^6.2"
     },
     "authors": [
         {
@@ -23,6 +23,7 @@
         "sort-packages": true
     },
     "conflict": {
+        "phpunit/phpunit": "<9.5",
         "symfony/http-foundation": "<5.2.1"
     },
     "autoload": {
