@@ -23,6 +23,7 @@
         "sort-packages": true
     },
     "conflict": {
+        "phpunit/phpunit": "<9.5",
         "symfony/http-foundation": "<5.2.1"
     },
     "autoload": {
