@@ -103,7 +103,7 @@ class ConfigurableScopingHttpClientTest extends TestCase
             'ffff' => 'gg',
         ], $requestOptions['query']);
         $this->assertSame('X-FooBar: unit-test', $requestOptions['headers'][0]);
-        $this->assertSame('Content-Type: text/html', $requestOptions['headers'][1]);
+        $this->assertSame('Content-Type: application/x-www-form-urlencoded', $requestOptions['headers'][1]);
 
 
 
@@ -152,7 +152,7 @@ class ConfigurableScopingHttpClientTest extends TestCase
             'ghi' => 'ddddddddddddd',
         ], $requestOptions['query']);
         $this->assertSame('X-FooBar: unit-test', $requestOptions['headers'][0]);
-        $this->assertSame('Content-Type: text/html', $requestOptions['headers'][1]);
+        $this->assertSame('Content-Type: application/x-www-form-urlencoded', $requestOptions['headers'][1]);
 
         $response = $client->request('GET', 'http://example.com/body', ['body' => ['url' => 'http://example.com'], 'query' => [
             'ffff' => 'gg',
