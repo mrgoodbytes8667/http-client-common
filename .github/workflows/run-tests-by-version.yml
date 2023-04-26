@@ -1,0 +1,58 @@
+name: Tests By Symfony Version
+
+on:
+  pull_request:
+  workflow_dispatch:
+  repository_dispatch:
+  push:
+    branches:
+      - main
+      - 0.*
+      - 1.*
+  schedule:
+    # Weekly on Thursdays at 6am UTC
+    - cron:  '0 6 * * 4'
+
+jobs:
+  symfony52:
+    uses: mrgoodbytes8667/workflows/.github/workflows/run-tests-by-version.yml@php8.1-8.2
+    with:
+      phpUnitVersion: 9.5
+      symfony: 5.2
+      
+  symfony53:
+    uses: mrgoodbytes8667/workflows/.github/workflows/run-tests-by-version.yml@php8.1-8.2
+    with:
+      phpUnitVersion: 9.5
+      symfony: 5.3
+
+  symfony54:
+    uses: mrgoodbytes8667/workflows/.github/workflows/run-tests-by-version.yml@php8.1-8.2
+    with:
+      phpUnitVersion: 9.5
+      symfony: 5.4
+
+  symfony60:
+    uses: mrgoodbytes8667/workflows/.github/workflows/run-tests-by-version.yml@php8.1-8.2
+    with:
+      phpUnitVersion: 9.5
+      symfony: 6.0
+
+  symfony61:
+    uses: mrgoodbytes8667/workflows/.github/workflows/run-tests-by-version.yml@php8.1-8.2
+    with:
+      phpUnitVersion: 9.5
+      symfony: 6.1
+
+  symfony62:
+    uses: mrgoodbytes8667/workflows/.github/workflows/run-tests-by-version.yml@php8.1-8.2
+    with:
+      phpUnitVersion: 9.5
+      symfony: 6.2
+      
+  symfony63:
+    uses: mrgoodbytes8667/workflows/.github/workflows/run-tests-by-version.yml@php8.1-8.2
+    with:
+      phpUnitVersion: 9.5
+      symfony: 6.3
+      minStability: 'dev'
