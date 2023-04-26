@@ -6,7 +6,7 @@
 ![Symfony LTS Version](https://img.shields.io/endpoint?url=https%3A%2F%2Fshields.mrgoodbytes.dev%2Fshield%2Flts%2F%255E6.2&logoColor=FFF&style=flat)
 ![Symfony Stable Version](https://img.shields.io/endpoint?url=https%3A%2F%2Fshields.mrgoodbytes.dev%2Fshield%2Fstable%2F%255E6.2&logoColor=FFF&style=flat)
 ![Symfony Dev Version](https://img.shields.io/endpoint?url=https%3A%2F%2Fshields.mrgoodbytes.dev%2Fshield%2Fdev%2F%255E6.2&logoColor=FFF&style=flat)
-![Packagist License](https://img.shields.io/packagist/l/mrgoodbytes8667/http-client-common?logo=creative-commons&logoColor=FFF&style=flat)  
+![Packagist License](https://img.shields.io/packagist/l/mrgoodbytes8667/http-client-common?logo=creative-commons&logoColor=FFF&style=flat)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mrgoodbytes8667/http-client-common/release.yml?label=stable&logo=github&logoColor=FFF&style=flat)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mrgoodbytes8667/http-client-common/run-tests.yml?logo=github&logoColor=FFF&style=flat)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mrgoodbytes8667/http-client-common/run-tests-by-version.yml?logo=github&logoColor=FFF&style=flat)
