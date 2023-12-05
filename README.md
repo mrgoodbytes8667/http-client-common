@@ -2,7 +2,7 @@
 [![Packagist Version](https://img.shields.io/packagist/v/mrgoodbytes8667/http-client-common?logo=packagist&logoColor=FFF&style=flat)](https://packagist.org/packages/mrgoodbytes8667/http-client-common)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/mrgoodbytes8667/http-client-common?logo=php&logoColor=FFF&style=flat)](https://packagist.org/packages/mrgoodbytes8667/http-client-common)
 ![Symfony Versions Supported](https://img.shields.io/endpoint?url=https%3A%2F%2Fshields.mrgoodbytes.dev%2Fshield%2Fsymfony%2F%255E6.2&logoColor=FFF&style=flat)
-![Symfony Versions Tested](https://img.shields.io/endpoint?url=https%3A%2F%2Fshields.mrgoodbytes.dev%2Fshield%2Fsymfony-test%2F%253E%253D6.2%2520%253C6.4&logoColor=FFF&style=flat)
+![Symfony Versions Tested](https://img.shields.io/endpoint?url=https%3A%2F%2Fshields.mrgoodbytes.dev%2Fshield%2Fsymfony-test%2F%253E%253D6.2%2520%253C7.0&logoColor=FFF&style=flat)
 ![Symfony LTS Version](https://img.shields.io/endpoint?url=https%3A%2F%2Fshields.mrgoodbytes.dev%2Fshield%2Flts%2F%255E6.2&logoColor=FFF&style=flat)
 ![Symfony Stable Version](https://img.shields.io/endpoint?url=https%3A%2F%2Fshields.mrgoodbytes.dev%2Fshield%2Fstable%2F%255E6.2&logoColor=FFF&style=flat)
 ![Symfony Dev Version](https://img.shields.io/endpoint?url=https%3A%2F%2Fshields.mrgoodbytes.dev%2Fshield%2Fdev%2F%255E6.2&logoColor=FFF&style=flat)
@@ -10,6 +10,7 @@
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mrgoodbytes8667/http-client-common/release.yml?label=stable&logo=github&logoColor=FFF&style=flat)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mrgoodbytes8667/http-client-common/run-tests.yml?logo=github&logoColor=FFF&style=flat)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mrgoodbytes8667/http-client-common/run-tests-by-version.yml?logo=github&logoColor=FFF&style=flat)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mrgoodbytes8667/http-client-common/code-coverage.yml?logo=github&logoColor=FFF&style=flat)
 [![codecov](https://img.shields.io/codecov/c/github/mrgoodbytes8667/http-client-common/0.3?logo=codecov&logoColor=FFF&style=flat)](https://codecov.io/gh/mrgoodbytes8667/http-client-common)  
 Some common files needed for the various HttpClient backed packages
 

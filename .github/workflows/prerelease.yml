@@ -10,7 +10,7 @@ on:
 
 jobs:
   release:
-    uses: mrgoodbytes8667/workflows/.github/workflows/release.yml@php8.1-8.2
+    uses: mrgoodbytes8667/workflows/.github/workflows/release.yml@php8.1-8.3
     with:
-      phpUnitVersion: 9.5
+      phpUnitVersion: 9.6
       prerelease: true

@@ -15,13 +15,19 @@ on:
 
 jobs:
   symfony62:
-    uses: mrgoodbytes8667/workflows/.github/workflows/run-tests-by-version.yml@php8.1-8.2
+    uses: mrgoodbytes8667/workflows/.github/workflows/run-tests-by-version.yml@php8.1-8.3
     with:
-      phpUnitVersion: 9.5
+      phpUnitVersion: 9.6
       symfony: 6.2
       
   symfony63:
-    uses: mrgoodbytes8667/workflows/.github/workflows/run-tests-by-version.yml@php8.1-8.2
+    uses: mrgoodbytes8667/workflows/.github/workflows/run-tests-by-version.yml@php8.1-8.3
     with:
-      phpUnitVersion: 9.5
+      phpUnitVersion: 9.6
       symfony: 6.3
+  
+  symfony64:
+    uses: mrgoodbytes8667/workflows/.github/workflows/run-tests-by-version.yml@php8.1-8.3
+    with:
+      phpUnitVersion: 9.6
+      symfony: 6.4
